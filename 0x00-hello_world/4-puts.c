@@ -2,10 +2,9 @@
 
 int main(void)
 {
-	char *stmt = "Programming is like building a multilingual puzzle\n";
+	char *stmt = '"Programming is like building a multilingual puzzle\n';
 
 	puts(stmt);
 
 	return 0;
-
 }
