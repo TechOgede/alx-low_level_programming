@@ -1,5 +1,4 @@
 #include<stdio.h>
-
 /**
  * main - vehicle for all programs in C
  *
@@ -14,10 +13,8 @@ int main(void)
 	char c;
 	float f;
 
-	printf("The size of an integer is: %lu\n", (unsigned long)(sizeof(i));
-	printf("The size of a character is: %lu\n", (unsigned long)(sizeof(c));
-	printf("The size of a float is: $lu\n", (unsigned long)(sizeof(f));
-	
+	printf("The size of an integer is: %lu\n", sizeof(i));
+	printf("The size of a character is: %lu\n", sizeof(c));
+	printf("The size of a float is: %lu\n", sizeof(f));
 	return (0);
-
 }
