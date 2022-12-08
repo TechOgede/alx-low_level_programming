@@ -1,3 +1,5 @@
+#include<stdio.h>
+
 /**
  * main - Main vehicle for programs in C
  *
