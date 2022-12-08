@@ -1,2 +1,2 @@
 #!/bin/bash
-SFILE=$(tr 'c' 's' <<< $CFILE);gcc -S $CFILE >> $SFILE
+gcc -S $CFILE
