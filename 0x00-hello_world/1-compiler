@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -c $CFILE >> $(OFILE=$( tr 'c' 'o' <<< $CFILE)) 
+OFILE=$(tr 'c' 'o' <<< $CFILE);gcc -c $CFILE >> $OFILE
