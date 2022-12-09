@@ -8,10 +8,9 @@
 
 int main(void)
 {
-	char ch;
 	char *str;
 
-	str = "abcdefghijklmnopqrstuvwxyz"
+	str = "abcdefghijklmnopqrstuvwxyz";
 	for (i = 0; i < 26; i++)
 	putchar(str[i]);
 	return (0);
