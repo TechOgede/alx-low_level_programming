@@ -11,11 +11,11 @@
 int main(void)
 {
 	int n;
+	int l_d;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	/* get the last digit */
-	int l_d;
 
 	l_d = n % 10;
 
