@@ -11,8 +11,8 @@ int main(void)
 	int i;
 	char *str;
 
-	str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$";
-	for (i = 0; i < 53; i++)
+	str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	for (i = 0; i < 52; i++)
 	putchar(str[i]);
 	putchar('\n');
 
