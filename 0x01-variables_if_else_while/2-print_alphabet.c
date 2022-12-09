@@ -11,8 +11,8 @@ int main(void)
 	char ch;
 	char *str;
 
-	for (ch = 'a'; ch <= 'z'; ch++)
-	str = putchar(ch);
-	putchar(str);
+	str = "abcdefghijklmnopqrstuvwxyz"
+	for (i = 0; i < 26; i++)
+	putchar(str[i]);
 	return (0);
 }
