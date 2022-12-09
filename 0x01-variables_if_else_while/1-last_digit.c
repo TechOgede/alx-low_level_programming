@@ -15,7 +15,9 @@ int main(void)
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	/* get the last digit */
-	int l_d = n % 10;
+	int l_d;
+
+	l_d = n % 10;
 
 	if (l_d > 5)
 	printf("The last digit of %d is %d and is greater than 5\n", n, l_d);
