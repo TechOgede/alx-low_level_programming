@@ -1,2 +1,2 @@
 #!/bin/bash
-SFILE=$(tr 'c' 's' <<< $CFILE);gcc -S -masm=intel -Og -fverbose-asm $SFILE
+gcc -S -masm=intel $CFILE
