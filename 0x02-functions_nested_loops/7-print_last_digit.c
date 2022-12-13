@@ -13,6 +13,7 @@ int print_last_digit(int n)
 	int l_digit;
 
 	l_digit = n % 10;
+	_putchar(n + 48);
 
 	return (l_digit);
 }
