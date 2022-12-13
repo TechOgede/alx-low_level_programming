@@ -16,10 +16,14 @@ int main(void)
 
 	for (i = 1; i <= 50; i++)
 	{
-		printf("%ld, ", next);
-		x = y;
-		y = next;
-		next = x + y;
+		while (i != 50)
+		{
+			printf("%ld, ", next);
+			x = y;
+			y = next;
+			next = x + y;
+		}
+		printf("%ld", next);
 	}
 	printf("\n");
 	return (0);
