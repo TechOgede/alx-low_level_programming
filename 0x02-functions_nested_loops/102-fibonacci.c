@@ -16,7 +16,7 @@ int main(void)
 
 	for (i = 1; i <= 50; i++)
 	{
-		while (i != 50)
+		if (i != 50)
 		{
 			printf("%ld, ", next);
 			x = y;
