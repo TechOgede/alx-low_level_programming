@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	long int i, x, y, next, flag, sum_even;
+	long int x, y, next, flag, sum_even;
 
 	x = 0;
 	y = 1;
