@@ -27,7 +27,7 @@ int print_last_digit(long int n)
  * Return: a positive n
  */
 
-int _abs(int n)
+int _abs(long int n)
 {
 	if (n >= 0)
 		return (n);
