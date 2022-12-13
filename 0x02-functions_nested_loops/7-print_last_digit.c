@@ -8,6 +8,16 @@
  * Return: a positive integer
  */
 
+
+int _abs(int n)
+{
+	if (n >= 0)
+		return (n);
+
+	else
+		return (n * -1);
+}
+
 int print_last_digit(int n)
 {
 	int l_digit;
