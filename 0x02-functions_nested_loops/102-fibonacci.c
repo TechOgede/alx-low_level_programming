@@ -13,9 +13,8 @@ int main(void)
 	x = 0;
 	y = 1;
 	next = x + y;
-	printf("%ld, %ld, ", x, y);
 
-	for (i = 3; i <= 100; i++)
+	for (i = 3; i <= 50; i++)
 	{
 		printf("%ld, ", next);
 		x = y;
