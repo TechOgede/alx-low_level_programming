@@ -9,7 +9,6 @@
 int main(void)
 {
 	print_alphabet();
-	putchar('\n');
 	return (0);
 }
 
@@ -20,12 +19,3 @@ int main(void)
  * Return: Has no return value
  */
 
-void print_alphabet(void)
-{	int ch;
-
-	for (ch = 'a'; ch <= 'z'; ch++)
-
-	{
-		putchar(ch);
-	}
-}
