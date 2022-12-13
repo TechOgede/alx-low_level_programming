@@ -8,7 +8,7 @@
  * Return: a positive integer
  */
 
-int print_last_digit(long long int n)
+int print_last_digit(long int n)
 {
 	int l_digit;
 	
