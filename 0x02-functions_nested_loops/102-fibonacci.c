@@ -23,7 +23,8 @@ int main(void)
 			y = next;
 			next = x + y;
 		}
-		printf("%ld", next);
+		else
+			printf("%ld", next);
 	}
 	printf("\n");
 	return (0);
