@@ -14,7 +14,7 @@ int main(void)
 	y = 1;
 	next = x + y;
 
-	for (i = 3; i <= 50; i++)
+	for (i = 1; i <= 50; i++)
 	{
 		printf("%ld, ", next);
 		x = y;
