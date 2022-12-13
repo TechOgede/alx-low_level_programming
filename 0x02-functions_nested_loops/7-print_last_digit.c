@@ -12,7 +12,6 @@ int print_last_digit(long int n)
 {
 	int l_digit;
 
-	n = _abs(n);
 	l_digit = n % 10;
 
 	if (l_digit < 0)
@@ -21,21 +20,4 @@ int print_last_digit(long int n)
 	_putchar('0' + l_digit);
 
 	return (l_digit);
-}
-
-/**
- * _abs - computes the absolute value of a number
- * @n: a signed integer
- *
- * Description: compares n to zero and and always returns positve n
- * Return: a positive n
- */
-
-int _abs(long int n)
-{
-	if (n >= 0)
-		return (n);
-
-	else
-		return (n * -1);
 }
