@@ -8,8 +8,8 @@
  * Return: no return value
  */
 
-void print_to_98(int n)
-{
+void print_to_98(int n) {
+
 	int i;
 
 	if (n <= 98)
@@ -36,4 +36,4 @@ void print_to_98(int n)
 	{
 
 	_putchar("\n");
-}
+}}
