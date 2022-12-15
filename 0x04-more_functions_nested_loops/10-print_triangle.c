@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
-* print_square - prints # multiple times diagonally
-* @size: any positive integer > 0. denotes the size of the square
+* print_triangle - prints # multiple timesto form a triangle
+* @size: any positive integer > 0. denotes the size of the triangle
 *
 * Description: using a for loop to print # n times
 * Return: no return value
 */
 
-void print_square(int size)
+void print_triangle(int size)
 {
 	int i, j, n = size - 1;
 
