@@ -12,6 +12,7 @@
 int mul(int i, int j)
 {
 	int res;
+
 	res = i * j;
 
 	return (res);
