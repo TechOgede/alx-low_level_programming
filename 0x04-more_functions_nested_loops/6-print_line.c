@@ -19,8 +19,7 @@ void print_line(int n)
 			_putchar(95);
 
 	}
-	_putchar(92);
-	_putchar(110);
+	_putchar(10);
 
 }
 
