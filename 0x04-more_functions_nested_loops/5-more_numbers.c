@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* print_most_numbers - display numbers btw 0 and 9 except 2 and 4
+* more_numbers - display numbers btw 0 and 9 except 2 and 4
 *
 * Description: uses a for loop to display numbers
 * Return: no return value
@@ -21,10 +21,6 @@ void more_numbers(void)
 			_putchar((i % 10) + '0');
 		}
 
-			_putchar('\n');
+		_putchar('\n');
 	}
-}
-		_putchar(i + '0'
-	}
-	_putchar('\n');
 }
