@@ -13,7 +13,7 @@ int main(void)
 
 	for (i = 3; i < 12057; i += 2)
 	{
-		if (num % i == 0 && num != i)
+		while (num % i == 0 && num != i)
 		{
 			num /= i;
 
