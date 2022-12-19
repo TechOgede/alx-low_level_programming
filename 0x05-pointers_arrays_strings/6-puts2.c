@@ -10,7 +10,7 @@
 * Return: no return value
 */
 
-void _puts2(char *s)
+void puts2(char *s)
 {
 	int i = 0, len = strlen(s);
 
