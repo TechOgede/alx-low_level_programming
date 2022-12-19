@@ -14,10 +14,11 @@ void _puts(char *s)
 	int i = 0, flag = 1;
 
 	while (flag)
-	{	
+	{
 		if (s[i] != 0)
-			_putchar(s[i]);
+		{	_putchar(s[i]);
 			i++;
+		}
 		else
 			flag = 0;
 	}
