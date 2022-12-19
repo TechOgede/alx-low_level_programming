@@ -22,4 +22,5 @@ void _puts(char *s)
 		else
 			flag = 0;
 	}
+	_putchar('\n');
 }
