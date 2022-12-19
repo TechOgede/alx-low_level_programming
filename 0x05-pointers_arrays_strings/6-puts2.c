@@ -2,7 +2,7 @@
 #include<string.h>
 
 /**
-* _puts2 - prints alternae chars in a string to stdout
+* puts2 - prints alternae chars in a string to stdout
 * @s: a null termianted string
 *
 * Description: uses _putchar to display characters.
