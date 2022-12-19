@@ -6,13 +6,12 @@
 *
 * Description: uses _putchar to display characters.
 * stops when the Null character is detected.
-* Return: 0 if successful
+* Return: no return value
 */
 
-int _puts(char *s)
+void _puts(char *s)
 {
 
 	while (*(s++))
 		_putchar(*s);
-	return (0);
 }
