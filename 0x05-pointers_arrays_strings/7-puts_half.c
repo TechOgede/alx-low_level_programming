@@ -19,7 +19,7 @@ void puts_half(char *s)
 	{
 		for (i = len / 2; i < len; i++)
 		{
-			_putchar(i);
+			_putchar(s[i]);
 		}
 	}
 	else
@@ -28,7 +28,7 @@ void puts_half(char *s)
 
 		for (i = n + 1; i < len; i++)
 		{
-			_putchar(i);
+			_putchar(s[i]);
 		}
 	}
 
