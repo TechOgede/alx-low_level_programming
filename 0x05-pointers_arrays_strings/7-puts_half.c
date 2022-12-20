@@ -2,21 +2,32 @@
 #include<string.h>
 
 /**
-* puts2 - prints alternae chars in a string to stdout
+* puts_half - prinnts the second half of a string
 * @s: a null termianted string
 *
 * Description: uses _putchar to display characters.
-* stops when the Null character is detected.
+* prints the last n characters if string length is an odd number
+* where n is (length - 1) / 2
 * Return: no return value
 */
 
-void puts2(char *s)
+void puts_half(char *s)
 {
-	int i = 0, len = strlen(s);
+	int len = strlen(s), i;
+	int n = (len - 1) / 2;
 
-	for (; i < len; i += 2)
+	if (len % 2 == 0)
 	{
-		_putchar(s[i]);
+		for (i = len / 2; i < len; i++)
+		{
+			_putchar(i);
+		}
 	}
+	else
+		for (i = n + 1; i < len; i++)
+		{
+			_putchar(i);
+		}
+
 	_putchar('\n');
 }
