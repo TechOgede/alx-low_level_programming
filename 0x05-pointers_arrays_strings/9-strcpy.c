@@ -10,15 +10,16 @@
 * Return: returns a string (char *)
 */
 
-char * _strcpy(char *dest, char *src)
+char *_strcpy(char *dest, char *src)
 {
 	int i, len = strlen(src);
+
 	for (i = 0; i < len && src[i] != '\0'; i++)
 	{
 		dest[i] = src[i];
 	}
 
-	for (; i < len; i++)
+	for (; i <= len; i++)
 		dest[i] = '\0';
-	return dest;
+	return (dest);
 }
