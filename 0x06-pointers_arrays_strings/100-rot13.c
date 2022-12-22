@@ -10,18 +10,21 @@
 
 char *rot13(char *s)
 {
-	int count = 0;
+	int i, count = 0;
 	char *rot13 = s;
+	char *k = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char *r = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	while (*(s + count) != '\0')
+	while (*(s + count))
 	{
-		if (*(s + count) >= 65 && *(s + count) <= 122)
+		for (i = 0; i < 52; i++)
 		{
-			if ((*(s + count) >= 65 && *(s + count) <=  78) || (*(s + count) >= 97 && *(s + count) <= 110))
-				*(s + count) += 13;
-			else
-				*(s + count) -= 13;
+			if (*(s + count) == k[i])
+			{	*(s + count) = r[i];
+				break;
+			}
 		}
+		count++;
 	}
 	return (rot13);
 
