@@ -5,7 +5,8 @@
 * @a: an array of integers
 * @n: number of elements in the array
 *
-* Description: Loops through an array and swaps elements from first to last and vice versa
+* Description: Loops through an array and swaps
+* elements from first to last and vice versa
 * Return: no return value
 */
 
