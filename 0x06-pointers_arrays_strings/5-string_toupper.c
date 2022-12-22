@@ -10,11 +10,13 @@
 
 char *string_toupper(char *s)
 {
+	char *upper = s;
+
 	while (*s++)
 	{
 		if (*s >= 97 && *s <= 122)
 			*s -= 32;
 	}
-	return (s);
+	return (upper);
 }
 
