@@ -18,6 +18,9 @@ char *cap_string(char *s)
 
 	while (*(s + count) != '\0')
 	{
+		if (count == 0 && *(s + count) >= 97 && *(s + count) <= 122)
+			*(s + count) -= 32;
+
 		for (i = 0; i < 13; i++)
 		{
 			if (*(s + count) == seps[i])
