@@ -3,7 +3,7 @@
 /**
 * print_diagsums - print the sum of two diagonals of a square matrix
 * @a: the array of arrays
-* size: the size of the square array
+* @size: the size of the square array
 *
 * Description: the diagonals of a square matrix are a[i][j]
 * where i = j
@@ -22,6 +22,6 @@ void print_diagsums(int *a, int size)
 
 	for (i = 0; i < max - 1; i += size - 1)
 		sum_left += a[i];
-	
-	printf("%d %d\n", sum_right, sum_left);
+
+	printf("%d, %d\n", sum_right, sum_left);
 }
