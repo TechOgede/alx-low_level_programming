@@ -37,8 +37,8 @@ unsigned int _strspn(char *s, char *accept)
 		}
 		if (!found_match)
 			break;
-		else
-			len_sub++;
+
+		len_sub++;
 
 	}
 	return (len_sub);
