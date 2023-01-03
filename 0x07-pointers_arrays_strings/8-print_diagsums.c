@@ -20,7 +20,7 @@ void print_diagsums(int *a, int size)
 
 	}
 
-	for (i = 0; i < max - 1; i += size - 1)
+	for (i = size - 1; i < max - 1; i += size - 1)
 		sum_left += a[i];
 
 	printf("%d, %d\n", sum_right, sum_left);
