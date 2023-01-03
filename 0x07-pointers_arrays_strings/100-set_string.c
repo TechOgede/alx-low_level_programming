@@ -4,9 +4,10 @@
 * set_string - sets the value of a pointer to a char
 * @s: a pointer to the pointer that points to the
 * first char in a string
+* @to: a string to be set to the pointer s
 *
 * Description: deferemces s sets it point to another string
-$ Return: no return value
+* Return: no return value
 */
 
 void set_string(char **s, char *to)
