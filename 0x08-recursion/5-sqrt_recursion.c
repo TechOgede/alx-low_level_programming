@@ -21,6 +21,15 @@ int _sqrt_recursion(int n)
 	return (sqrt_by_prime(n, 2));
 }
 
+/**
+* sqrt_by_prime - determines the square root by
+* considering prime factors
+* @n: a positive integer
+* @c: iterator and possible prime factors of n
+*
+* Return: a positve integer
+*/
+
 int sqrt_by_prime(int n, int c)
 {
 	if (c % (n / c) == 0)
