@@ -1,2 +1,3 @@
 #!/bin/bash
-find . -type f -name *.c | gcc -c ; find . -type f -name *.o | ar rc liball.a
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -c *.c
+ar rc liball.a *.o
