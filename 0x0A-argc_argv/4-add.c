@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<stdlib.h>
 #include<limits.h>
 
 int _atoi(char *str);
@@ -26,7 +25,6 @@ int main(int argc, char *argv[])
 		}
 
 		sum += _atoi(argv[i]);
-	
 
 	}
 	if (argc != 1)
@@ -38,9 +36,10 @@ int main(int argc, char *argv[])
 * _atoi - converts a string to an integer
 * @str: string to be converted
 *
-* Description: converts strings of numbers to int. Even accepts the 
+* Description: converts strings of numbers to int. Even accepts the
 * prceding + or -
 * Return: returns the integer if successful. 0 otherwise
+* Returns INT_MIN if char in string isnt a digit
 */
 
 int _atoi(char *str)
