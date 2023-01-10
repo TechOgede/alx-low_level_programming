@@ -43,6 +43,7 @@ char *argstostr(int ac, char **av)
 	str[k] = '\n';
 	k++;
 	}
+	str[total_len] = '\0';
 	free(args_len);
 
 	return (str);
