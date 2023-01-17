@@ -22,7 +22,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	len_name = strlen(name);
 	len_owner = strlen(owner);
 	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL || !name || !owner)
+	if (new_dog == NULL || name == NULL || owner == NULL)
 		return (NULL);
 	name_cpy = malloc(sizeof(char) * (len_name + 1));
 	if (name_cpy == NULL)
@@ -39,7 +39,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 	init_block(owner_cpy, owner);
-	init_struct(new_dog, name, owner, age);
+	init_struct(new_dog, name_cpy, owner_cpy, age);
 	return (new_dog);
 }
 /**
