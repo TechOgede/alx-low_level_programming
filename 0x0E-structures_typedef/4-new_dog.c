@@ -1,5 +1,8 @@
 #include "dog.h"
+#include<string.h>
 
+void init_block(char *block, char *str);
+void init_struct(dog_t *d, char *str1, char *str2, float num);
 /**
 * new_dog - creates a new dog
 * @name: dog's name
@@ -13,29 +16,21 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog;
-	int i, len_name = 0, len_owner = 0;
+	int len_name, len_owner;
 	char *name_cpy, *owner_cpy;
 
-	while (name[len_name])
-		len_name++;
-	while (owner[len_owner])
-		len_owner++;
-
+	len_name = strlen(name);
+	len_owner = strlen(owner);
 	new_dog = malloc(sizeof(dog_t));
 	if (new_dog == NULL || !name || !owner)
 		return (NULL);
-
 	name_cpy = malloc(sizeof(char) * (len_name + 1));
 	if (name_cpy == NULL)
 	{
 		free(new_dog);
 		return (NULL);
 	}
-
-	for (i = 0; name[i]; i++)
-		name_cpy[i] = name[i];
-	name_cpy[i] = '\0';
-
+	init_block(name_cpy, name);
 	owner_cpy = malloc(sizeof(char) * (len_owner + 1));
 	if (owner_cpy == NULL)
 	{
@@ -43,14 +38,43 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(new_dog);
 		return (NULL);
 	}
-
-	for (i = 0; owner[i]; i++)
-		owner_cpy[i] = owner[i];
-	owner_cpy[i] = '\0';
-
-	new_dog->name = name_cpy;
-	new_dog->age = age;
-	new_dog->owner = owner_cpy;
-
+	init_block(owner_cpy, owner);
+	init_struct(new_dog, name, owner, age);
 	return (new_dog);
+}
+/**
+* init_block - initializes the block allocated for a string
+* @block: pointer to newly allocated block of memory
+* @str: string to be copied inot the new block of memory
+*
+* Description: loops through both the block and string
+* initializing each unit
+* Return: no return value
+*/
+
+void init_block(char *block, char *str)
+{
+	int i;
+
+	for (i = 0; str[i]; i++)
+		block[i] = str[i];
+	block[i] = '\0';
+
+}
+/**
+* init_struct - initializes the fields of a dog_t struct
+* @d: pointer to the newly allocated dog_t
+* @str1: name of the dog
+* @str2: name of owner
+* @num: dog's age
+*
+* Decription: uses the -> operator to set fields
+* Return: no return value
+*/
+
+void init_struct(dog_t *d, char *str1, char *str2, float num)
+{
+	d->name = str1;
+	d->age = num;
+	d->owner = str2;
 }
