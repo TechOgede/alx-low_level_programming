@@ -2,6 +2,7 @@
 
 /**
 * array_iterator - passes each element of an array to a function
+* @array: an array of any type
 * @size: size of the array
 * @action: the function which each element is passed to
 *
