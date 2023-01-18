@@ -9,7 +9,7 @@
 
 int main(int argc, char **argv)
 {
-	int a, b;
+	int a, b, error = 0;
 	int (*op_ptr)(int, int);
 	int opr = *argv[2];
 
@@ -31,8 +31,8 @@ int main(int argc, char **argv)
 	}
 
 	op_ptr = get_op_func(*(argv + 2));
-	printf("%d\n", op_ptr(a, b));
-	
+	(op_ptr != NULL) ? printf("%d\n", op_ptr(a, b)): error++;
+
 	return (0);
 
 
