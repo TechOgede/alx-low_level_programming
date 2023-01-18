@@ -32,6 +32,7 @@ int main(int argc, char **argv)
 
 	op_ptr = get_op_func(*(argv + 2));
 	printf("%d\n", op_ptr(a, b));
+	
 	return (0);
 
 
