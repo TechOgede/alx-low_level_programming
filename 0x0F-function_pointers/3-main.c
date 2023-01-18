@@ -2,7 +2,8 @@
 #include<stdlib.h>
 /**
 * main - Entry point
-* 
+* @argc: num of arguments
+* @argv: array of pointers to pointers that point to the args
 * Return: 0 if successful
 */
 
