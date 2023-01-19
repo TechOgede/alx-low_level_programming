@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 
 	ptr = (unsigned char *)main;
 
-	
+
 	if (num_bytes > 0)
 	{
 		while (i < (num_bytes - 1))
