@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	{	printf("Error\n");
 		exit(98);
 	}
-	
+
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	}
 
 	op_ptr = get_op_func(argv[2]);
-	if (op_ptr == NULL || (opr != 43 && opr != 45 && opr != 47 && opr != 37 && opr != 42))
+	if (opr != 43 && opr != 45 && opr != 47 && opr != 37 && opr != 42)
 	{
 		printf("Error\n");
 		exit(99);
