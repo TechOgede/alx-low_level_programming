@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 {
 	int a, b;
 	int (*op_ptr)(int, int);
-	char *opr = argv[2];
+	char opr = (*argv[2]);
 
 	if (argc != 4)
 	{	printf("Error\n");
@@ -21,13 +21,13 @@ int main(int argc, char **argv)
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 
-	if ((*opr == '/' || *opr == '%') && b == 0)
+	if ((opr == '/' || opr == '%') && b == 0)
 	{	printf("Error\n");
 		exit(100);
 	}
 
 	op_ptr = get_op_func(argv[2]);
-	if (op_ptr == NULL)
+	if (op_ptr == NULL || (opr != 43 && opr != 45 && opr != 47 && opr != 37 && opr != 42))
 	{
 		printf("Error\n");
 		exit(99);
