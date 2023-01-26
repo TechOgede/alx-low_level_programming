@@ -5,7 +5,7 @@
 * @head: pointer to a list_t pointer
 * @str: string to be used to create new node
 *
-* Description: dynamically allocates memory for a new node and 
+* Description: dynamically allocates memory for a new node and
 * has its next field point to the 'head' of the list. Thereby
 * becoming the head.
 * Return: the modified list
