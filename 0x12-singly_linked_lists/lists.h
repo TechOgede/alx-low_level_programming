@@ -4,10 +4,13 @@
 #include<stdlib.h>
 
 /**
-* struct list_s
+* struct list_s  - a node in a singly linked list
 * @str: a string
 * @len: length of string
 * @next: pointer to the next node
+*
+* Description: struct containing three fields
+* typedef to list_t
 */
 
 typedef struct list_s
