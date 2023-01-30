@@ -8,7 +8,7 @@
 * Description: calls malloc and initializes the fields of
 * the new node with its next field pointing to NULL
 * Sets the last node's next field to point to the new node
-* 
+*
 * Return: a pointer to the modified list
 */
 
@@ -25,14 +25,14 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 
 	temp = *head;
 
-	if (!temp)
-		temp = new_node;
+	if (temp == NULL)
+		*head = new_node;
 	else
-	{	while (temp->next)
+	{
+		while (temp->next)
 			temp = temp->next;
 		temp->next = new_node;
 	}
-	*head = temp;
 
 	return (*head);
 }
