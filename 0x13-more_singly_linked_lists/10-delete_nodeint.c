@@ -4,7 +4,7 @@
 * delete_nodeint_at_index - deletes a node at a specified index
 * @head: pointer to a listint_t pointer
 * @index: number specifying the position
-* 
+*
 * Description: loops throught the list. Has at prev node
 * point to the node after the indexed node. Then, has the indexed node
 * point to NULL.
@@ -19,7 +19,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 	prev = *head;
 
-	if (!prev)
+	if (!prev || !head)
 		return (-1);
 
 	if (index == 0)
