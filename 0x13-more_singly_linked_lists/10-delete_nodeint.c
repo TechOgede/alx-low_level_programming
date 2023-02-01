@@ -31,10 +31,11 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 	for (i = 0; i < index - 1 && prev; i++)
 	{
-		if (!prev)
-			return (-1);
 		prev = prev->next;
 	}
+
+	if (!prev || !(prev->next))
+		return (-1);
 
 	node = prev->next;
 
