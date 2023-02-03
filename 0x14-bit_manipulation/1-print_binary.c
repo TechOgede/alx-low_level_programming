@@ -12,7 +12,7 @@ unsigned int power(unsigned int x, unsigned int y);
 
 void print_binary(unsigned long int n)
 {
-	unsigned int i = 0, max_power, num = n;
+	unsigned long int i = 0, max_power, num = n;
 
 	if (n == 0)
 	{
