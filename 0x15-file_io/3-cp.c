@@ -58,19 +58,19 @@ void error(int n, int fd, int err_code, char *s)
 {
 	if ( n == 0)
 	{
-		dprintf(STDERR_FILENO, "Can't read from file %s\n", s);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", s);
 		exit(err_code);
 	}
 
 	if (n == 1)
 	{
-		dprintf(STDERR_FILENO, "Can't write to %s\n", s);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", s);
 		exit(err_code);
 	}
 
 	if (n == 2)
 	{
-		dprintf(STDERR_FILENO, "Cant't close fd %d\n", fd);
+		dprintf(STDERR_FILENO, "Error: Cant't close fd %d\n", fd);
 		exit(err_code);
 	}
 }
