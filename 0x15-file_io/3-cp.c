@@ -51,8 +51,7 @@ int main(int argc, char **argv)
 		exit(99);
 	}
 
-	nChar = 1024;
-	while (nChar == 1024)
+	while (nChar)
 	{
 		nChar = read(fd_from, buffer, 1024);
 		if (nChar < 0)
@@ -73,6 +72,18 @@ int main(int argc, char **argv)
 			safe_close(fd_from);
 			exit(99);
 		}
+	}
+
+	err_close = close(fd_to);
+	if (err_close < 0)
+	{
+		safe_close(fd_from);
+		exit(100);
+	}
+	err_close = close(fd_from);
+	if (err_close < 0)
+	{	safe_close(fd_from);
+		exit(100);
 	}
 
 	return (0);
