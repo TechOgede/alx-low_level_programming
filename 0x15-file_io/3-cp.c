@@ -64,7 +64,7 @@ int main(int argc, char **argv)
 
 		if (nChar == 0)
 			break;
-		write_count = write(fd_to, buffer, 1024);
+		write_count = write(fd_to, buffer, nChar);
 		if (write_count < 0)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
