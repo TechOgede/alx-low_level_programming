@@ -29,7 +29,7 @@ void safe_close(int des)
 */
 int main(int argc, char **argv)
 {
-	int fd_to, fd_from, nChar, write_count;
+	int fd_to, fd_from, nChar, write_count, err_close;
 	char buffer[1024];
 
 	if (argc != 3)
