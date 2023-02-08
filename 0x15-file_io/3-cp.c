@@ -23,21 +23,23 @@ int main(int argc, char **argv)
 	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to < 0)
 		error(1, fd_to, 99, argv[2]);
-	nChar = 1024;
-	while (nChar == 1024)
+
+	while (nChar)
 	{
 		nChar = read(fd_from, buffer, 1024);
 		if (fd_from < 0 || nChar < 0)
 			error(0, fd_from, 98, argv[1]);
+		if (nChar == 0)
+			break;
 		write_count = write(fd_to, buffer, 1024);
 		if (write_count < 0)
 			error(1, fd_to, 99, argv[2]);
 	}
-	fd_from_close = close(fd_from);
-	if (fd_from_close < 0)
-		error(2, fd_from, 100, "");
 	fd_to_close = close(fd_to);
-	if(fd_to_close < 0)
+	if (fd_to_close < 0)
+		error(2, fd_from, 100, "");
+	fd_from_close = close(fd_from);
+	if(fd_from_close < 0)
 		error(2, fd_to, 100, "");
 
 	return (0);
