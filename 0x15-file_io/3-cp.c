@@ -51,7 +51,8 @@ int main(int argc, char **argv)
 		exit(99);
 	}
 
-	while (nChar)
+	nChar = 1024;
+	while (nChar == 1024)
 	{
 		nChar = read(fd_from, buffer, 1024);
 		if (nChar < 0)
