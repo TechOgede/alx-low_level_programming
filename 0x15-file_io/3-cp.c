@@ -1,17 +1,35 @@
 #include "main.h"
+void safe_close(int des);
+
+/**
+* safe_close - close files and print error msg if any
+* @des: int denoting file descriptor
+*
+* Description: simply closes files and prints error message
+* Return: no return value
+*/
+
+void safe_close(int des)
+{
+	int error;
+
+	error = close(des);
+
+	if (error < 0)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", des);
+}
+
+
 
 /**
 * main - Entry point
 * @argc: # of arguments
 * @argv: array of pointers to the arguments
-*
 * Return: 0 if successful, otherwise anything else
 */
-void error(int n, int fd, int err_code, char *s);
-
 int main(int argc, char **argv)
 {
-	int fd_to, fd_from, nChar, write_count, fd_to_close, fd_from_close;
+	int fd_to, fd_from, nChar, write_count;
 	char buffer[1024];
 
 	if (argc != 3)
@@ -20,57 +38,42 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 	fd_from = open(argv[1], O_RDONLY);
+	if (fd_from < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
 	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to < 0)
-		error(1, fd_to, 99, argv[2]);
+	{
+		dprintf(STDERR_FILENO, "Error: Cant write to %s\n", argv[2]);
+		safe_close(fd_from);
+		exit(99);
+	}
 
 	while (nChar)
 	{
 		nChar = read(fd_from, buffer, 1024);
-		if (fd_from < 0 || nChar < 0)
-			error(0, fd_from, 98, argv[1]);
+		if (nChar < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			safe_close(fd_from);
+			safe_close(fd_to);
+			exit(98);
+		}
+
 		if (nChar == 0)
 			break;
 		write_count = write(fd_to, buffer, 1024);
 		if (write_count < 0)
-			error(1, fd_to, 99, argv[2]);
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			safe_close(fd_to);
+			safe_close(fd_from);
+			exit(99);
+		}
 	}
-	fd_to_close = close(fd_to);
-	if (fd_to_close < 0)
-		error(2, fd_from, 100, "");
-	fd_from_close = close(fd_from);
-	if(fd_from_close < 0)
-		error(2, fd_to, 100, "");
 
 	return (0);
 }
 
-/**
-* error - prints error message to stderr
-* @n: 0 for read errors, 1 for write errors, 2 for close errors
-* @fd: integer denoting the file descriptor
-* @err_code: integer denoting the code to call exit with
-*
-* Return: no return value
-*/
-
-void error(int n, int fd, int err_code, char *s)
-{
-	if ( n == 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", s);
-		exit(err_code);
-	}
-
-	if (n == 1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", s);
-		exit(err_code);
-	}
-
-	if (n == 2)
-	{
-		dprintf(STDERR_FILENO, "Error: Cant't close fd %d\n", fd);
-		exit(err_code);
-	}
-}
