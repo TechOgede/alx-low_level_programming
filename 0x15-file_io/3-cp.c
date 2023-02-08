@@ -7,6 +7,7 @@
 *
 * Return: 0 if successful, otherwise anything else
 */
+void error(int n, int fd, int err_code, char *s);
 
 int main(int argc, char **argv)
 {
@@ -15,43 +16,59 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	fd_from = open(argv[1], O_RDONLY);
-	if (fd_from == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
+	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (fd_to < 0)
+		error(1, fd_to, 99, argv[2]);
 	nChar = 1024;
 	while (nChar == 1024)
 	{
 		nChar = read(fd_from, buffer, 1024);
-		if (nChar == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
-		}
+		if (fd_from < 0 || nChar < 0)
+			error(0, fd_from, 98, argv[1]);
 		write_count = write(fd_to, buffer, 1024);
-		if (write_count == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
+		if (write_count < 0)
+			error(1, fd_to, 99, argv[2]);
 	}
-	fd_to_close = close(fd_to);
 	fd_from_close = close(fd_from);
-	if (fd_to_close == -1)
-	{
-		dprintf(2, "Can't close fd %d\n", fd_to);
-		exit(100);
-	}
-	if (fd_from_close == -1)
-	{
-		dprintf(STDERR_FILENO, "Can't close fd %d\n", fd_from);
-		exit(100);
-	}
+	if (fd_from_close < 0)
+		error(2, fd_from, 100, "");
+	fd_to_close = close(fd_to);
+	if(fd_to_close < 0)
+		error(2, fd_to, 100, "");
+
 	return (0);
+}
+
+/**
+* error - prints error message to stderr
+* @n: 0 for read errors, 1 for write errors, 2 for close errors
+* @fd: integer denoting the file descriptor
+* @err_code: integer denoting the code to call exit with
+*
+* Return: no return value
+*/
+
+void error(int n, int fd, int err_code, char *s)
+{
+	if ( n == 0)
+	{
+		dprintf(STDERR_FILENO, "Can't read from file %s", s);
+		exit(err_code);
+	}
+
+	if (n == 1)
+	{
+		dprintf(STDERR_FILENO, "Can't write to %s ", s);
+		exit(err_code);
+	}
+
+	if (n == 2)
+	{
+		dprintf(STDERR_FILENO, "Cant't close fd %d ", fd);
+		exit(err_code);
+	}
 }
