@@ -136,9 +136,9 @@ void print_magic(const char *ptr)
 {
 	int i;
 
-	printf(" Magic:			");
+	printf(" Magic:	");
 	for (i = 0; i < 16; i++)
-		printf("%02x ", ptr[i]);
+		printf(" %02x", ptr[i]);
 	printf("\n");
 }
 
