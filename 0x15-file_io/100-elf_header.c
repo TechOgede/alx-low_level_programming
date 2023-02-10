@@ -15,16 +15,16 @@ void print_addr(const char *ptr)
 	unsigned char class = (unsigned char) ptr[4];
 
 	if (class == ELFCLASS32)
-		printf(" Entry point address:	0x%x\n", ((Elf32_Ehdr *)ptr)->e_entry);
+		printf(" Entry point address:			0x%x\n", ((Elf32_Ehdr *)ptr)->e_entry);
 	if (class == ELFCLASS64)
-		printf(" Entry point address:	0x%lx\n", ((Elf64_Ehdr *)ptr)->e_entry);
+		printf(" Entry point address:			0x%lx\n", ((Elf64_Ehdr *)ptr)->e_entry);
 
 }
 
 
 
 /**
-* print_type - print type of ELF 
+* print_type - print type of ELF
 * @ptr: buffer
 *
 * Description: file can be either an Executable,
@@ -37,22 +37,22 @@ void print_type(const char *ptr)
 	unsigned char type = (unsigned char)ptr[16];
 
 	if (type == ET_NONE)
-		printf(" Type:			NONE (No file type)\n");
+		printf(" Type:					NONE (No file type)\n");
 	else if (type == ET_REL)
-		printf(" Type:			REL (Relocatable file)\n");
+		printf(" Type:					REL (Relocatable file)\n");
 	else if (type == ET_EXEC)
-		printf(" Type:			EXEC (Executable file)\n");
+		printf(" Type:					EXEC (Executable file)\n");
 	else if (type == ET_DYN)
-		printf(" Type:			DYN (Shared object file)\n");
+		printf(" Type:					DYN (Shared object file)\n");
 	else
-		printf(" Type:			CORE (Core file)\n");
+		printf(" Type:					CORE (Core file)\n");
 }
 
 
 /**
 * print_ABI_version - print the ABI version
-* @elf: buffer
-* 
+* @ptr: buffer
+*
 * Description: ABI ver depends on the OSABI
 * Return: no return value
 */
@@ -61,7 +61,7 @@ void print_ABI_version(const char *ptr)
 {
 	char ABI = ptr[8];
 
-	printf(" ABI Version:		%d\n", ABI);
+	printf(" ABI Version:				%d\n", ABI);
 }
 
 
@@ -78,13 +78,13 @@ void print_OSABI(const char *ptr)
 	char OSABI = ptr[7];
 
 	if (OSABI == ELFOSABI_SYSV || OSABI == ELFOSABI_NONE)
-		printf(" OS/ABI:		UNIX - System V\n");
+		printf(" OS/ABI:				UNIX - System V\n");
 	else if (OSABI == ELFOSABI_SOLARIS)
-		printf(" OS/ABI:		UNIX - Solaris\n");
+		printf(" OS/ABI:				UNIX - Solaris\n");
 	else if (OSABI == ELFOSABI_NETBSD)
-		printf(" OS/ABI:		UNIX - NetBSD\n");
+		printf(" OS/ABI:				UNIX - NetBSD\n");
 	else
-		printf(" OS/ABI:		<unknown: %x>\n", OSABI);
+		printf(" OS/ABI:				<unknown: %x>\n", OSABI);
 }
 
 /**
@@ -99,7 +99,7 @@ void print_version(const char *ptr)
 {
 	int version = ptr[6];
 
-	printf(" Version:		%d", version);
+	printf(" Version:				%d", version);
 	if (version == EV_CURRENT)
 		printf(" (current)\n");
 }
@@ -118,15 +118,15 @@ void print_data(const char *ptr)
 	char data = ptr[5];
 
 	if (data == ELFDATA2LSB)
-		printf(" Data:			2's Complement, little endian\n");
+		printf(" Data:					2's Complement, little endian\n");
 	if (data == ELFDATA2MSB)
-		printf(" Data:			2's Complement, big endian\n");
+		printf(" Data:					2's Complement, big endian\n");
 }
 
 
 /**
 * print_magic - prints the 'magic' 16 bytes
-* @elf: pointer to the buffer
+* @ptr: pointer to the buffer
 *
 * Description: prints each of the first 16 bytes of the file
 * Return: no return value
@@ -153,9 +153,9 @@ void print_magic(const char *ptr)
 void check_class(const char *ptr)
 {
 	unsigned char class;
-	
+
 	class = (unsigned char) ptr[4];
-	
+
 	if (class == ELFCLASSNONE)
 		exit(98);
 	printf("ELF Header:\n");
@@ -163,9 +163,9 @@ void check_class(const char *ptr)
 	print_magic(ptr);
 
 	if (class == ELFCLASS32)
-		printf(" Class:			ELF32\n");
+		printf(" Class:					ELF32\n");
 	if (class == ELFCLASS64)
-		printf(" Class:			ELF64\n");
+		printf(" Class:					ELF64\n");
 
 }
 
@@ -232,7 +232,6 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: elf_header file\n");
 		exit(98);
 	}
-
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 	{
@@ -252,16 +251,13 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Can't read from %s\n", argv[1]);
 		safe_close(fd);
 		exit(98);
-		
 	}
-
-	if(!check_elf(elf))
+	if (!check_elf(elf))
 	{
 		dprintf(STDERR_FILENO, "%s is not an elf file\n", argv[1]);
 		safe_close(fd);
 		exit(98);
 	}
-
 	check_class(elf);
 	print_data(elf);
 	print_version(elf);
@@ -269,9 +265,8 @@ int main(int argc, char **argv)
 	print_ABI_version(elf);
 	print_type(elf);
 	print_addr(elf);
-
 	return (0);
 
-	
+
 
 }
