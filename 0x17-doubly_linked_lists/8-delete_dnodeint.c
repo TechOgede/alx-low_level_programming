@@ -31,14 +31,13 @@ int delete_dnodeint_at_index(dlistint_t **h, unsigned int index)
 	{
 		if (pos == index)
 		{
+			temp->next = head->next;
 			if (head->next)
 			{
-				temp->next = head->next;
 				head->next->prev = temp;
 			}
 			else
 			{
-				temp->next = NULL;
 				head->prev = NULL;
 				free(head);
 				return (1);
