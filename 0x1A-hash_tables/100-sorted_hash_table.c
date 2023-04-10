@@ -36,6 +36,24 @@ shash_table_t *shash_table_create(unsigned long int size)
 }
 
 /**
+* get_ascii - calcuates the ascii value of a string
+* @str: the string argument
+*
+* Description: sums up the ascii value for each char in a string
+* Return: an int
+*/
+
+int get_ascii(char *str)
+{
+	int i, sum = 0;
+
+	for (i = 0; str[i]; i++)
+		sum += str[i];
+
+	return (sum);
+}
+
+/**
 * shash_table_insert - adds nodes to the sorted linked list in the hash table
 * @ht: pointer to hash table
 * @new_node: elem to be inserted
@@ -55,21 +73,21 @@ void shash_table_insert(shash_table_t *ht, shash_node_t *new_node)
 		ht->shead = ht->stail = new_node;
 		return;
 	}
-	if (*(ptr->key) > *(new_node->key))
+	if (get_ascii(ptr->key) > get_ascii(new_node->key))
 	{
 		ptr->sprev = new_node;
 		new_node->snext = ptr;
 		ht->shead = new_node;
 		return;
 	}
-	if (*(ht->stail)->key < *(new_node)->key)
+	if (get_ascii((ht->stail)->key) < get_ascii(new_node->key))
 	{
 		(ht->stail)->snext = new_node;
 		new_node->sprev = (ht->stail);
 		ht->stail = new_node;
 		return;
 	}
-	while (ptr && *(ptr->key) < *(new_node->key))
+	while (ptr && get_ascii(ptr->key) < get_ascii(new_node->key))
 		ptr = ptr->snext;
 
 	(ptr->sprev)->snext = new_node;
