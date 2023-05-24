@@ -20,5 +20,5 @@ fclean:
 	$(MAKE) oclean
 
 re:
-	$(CC) -c $(SRC)
+	$(MAKE) oclean
 	$(MAKE) all
