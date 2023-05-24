@@ -15,6 +15,10 @@ clean:
 oclean:
 	$(RM) $(OBJ)
 
-fclean: clean oclean 
+fclean:
+	$(MAKE) clean
+	$(MAKE) oclean
 
-re: oclean all
+re:
+	$(CC) -c $(SRC)
+	$(MAKE) all
