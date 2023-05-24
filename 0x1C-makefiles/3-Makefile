@@ -16,7 +16,8 @@ oclean:
 	$(RM) $(OBJ)
 
 fclean:
-	$(MAKE) clean; $(MAKE) oclean
+	$(MAKE) clean
+	$(MAKE) oclean
 
 re:
 	$(CC) -c $(SRC)
