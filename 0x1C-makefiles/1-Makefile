@@ -1,0 +1,13 @@
+#Creates the executable, school, using the CC and SRC variables
+
+CC:=gcc
+
+SRC:=school.c main.c
+
+.PHONY: all school
+
+all: school
+
+school: $(SRC)
+	$(CC) -o school $(SRC)
+
