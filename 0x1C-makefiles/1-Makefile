@@ -4,8 +4,6 @@ CC:=gcc
 
 SRC:=school.c main.c
 
-.PHONY: all school
-
 all: school
 
 school: $(SRC)
