@@ -10,4 +10,3 @@ all: school
 
 school: $(SRC)
 	$(CC) -o school $(SRC)
-
