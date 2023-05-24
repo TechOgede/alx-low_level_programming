@@ -13,7 +13,7 @@ def island_perimeter(grid):
     '''
 
     perimeter = 0
-    
+
     if not grid:
         return perimeter
 
@@ -24,21 +24,22 @@ def island_perimeter(grid):
 
     while i < num_rows:
         j = 0
-        
+
         while j < num_cols:
-            
+
             if grid[i][j] == 1:
 
-                if (i - 1) == -1 or grid[i - 1][j] == 0:
+                if (i - 1) == -1 or grid[i + 1][j] == 0:
                     perimeter += 1
-                if (i + 1) == num_rows or grid[i + 1][j] == 0:
+                if (i + 1) == num_rows or grid[i - 1][j] == 0:
                     perimeter += 1
-                if (j - 1) == -1 or grid[i][j - 1] == 0:
+                if (j - 1) == -1 or grid[i][j + 1] == 0:
                     perimeter += 1
-                if (j + 1) == num_cols or grid[i][j + 1] == 0:
+                if (j + 1) == num_cols or grid[i][j - 1] == 0:
                     perimeter += 1
 
             j += 1
+
         i += 1
 
     return perimeter
