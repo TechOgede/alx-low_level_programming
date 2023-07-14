@@ -12,7 +12,7 @@ void print_array(int *array, int low, int high);
 
 int jump_search(int *array, size_t size, int value);
 
-
+int interpolation_search(int *array, size_t size, int value);
 
 
 
