@@ -40,10 +40,9 @@ int jump_search(int *array, size_t size, int value)
 			}
 		}
 
-		else if (array[i * m] == value)
+		if (array[i * m] == value)
 			return (i * m);
-		else
-			printf("Value checked array[%ld] = [%d]\n", i * m, array[i * m]);
+		printf("Value checked array[%ld] = [%d]\n", i * m, array[i * m]);
 		i++;
 	}
 
